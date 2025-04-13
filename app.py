@@ -1,6 +1,10 @@
-from app import create_app
+from flask import Flask
+from routes import main
 
-app = create_app()
+app = Flask(__name__)
+app.secret_key = "supersecretkey"
 
-if __name__ == '__main__':
+app.register_blueprint(main)
+
+if __name__ == "__main__":
     app.run(debug=True)
